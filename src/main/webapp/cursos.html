@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- que sea responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Archivo bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- estilos css -->
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+        
+    <link rel="icon" type="image/png" href="img/logo punto tiff.png">
+    <title>Punto Tiff</title>
+    
+    <!-- Agrego iconos de redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+<!-- Agregar album -->
+<link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+
+</head>
+
+<body>
+    <div class="area-inicial">
+		<!-- Inicio header -->
+		<header class="header_section">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo-puntotiff-2.png" alt="Bootstrap" class="img-fluid" width="150">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExample01">
+                <ul class="navbar-nav me-auto mb-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotras.html">Nosotras</a>
+                    </li>
+                    <li class="nav-item">
+                <a class="nav-link" href="productos.jsp">Productos</a>
+              </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contactanos</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Se Agrega boton de inicio de sesión -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
+                Iniciar Sesión
+            </button>
+            <!-- Pop-up de Inicio de Sesión -->
+            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="loginModalLabel">Inicio de Sesión</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Formulario de inicio de sesión -->
+                            <form>
+                                <div class="form-group">
+                                    <label for="usuario">Usuario</label>
+                                    <input type="text" class="form-control" id="usuario" name="usuario" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Contraseña</label>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+        
+    <!-- Fin header -->
+    <!-- Inicio main -->
+    <main>
+        <!-- Aca comienzan las card de los curso -->
+        <div class="container py-3" style="padding-top: 100px;" >
+           
+              <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm" id="card1">
+                    <div class="card-header py-3">
+                      <h4 class="my-0 fw-normal">Diseño de cajas dulceras</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Aprenderas las mejores técnicas de decoración, diseño de etiquetas y embalaje, para que las golosinas se destaquen entre la competencia. Además, tendrás acceso al whatsapp personal de Fátima para que no te quedes con las dudas y tengas su apoyo para ayudarte en el camino.
+                      </p>                    
+                      <button type="button" class="w-100 btn btn-lg btn-outline-primary">40$</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm" id="card2">
+                    <div class="card-header py-3">
+                      <h4 class="my-0 fw-normal">Armado de figuras 3D</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Aprenderas aMontar piezas con precisión y descubre técnicas efectivas para mejorar la calidad de tus construcciones. Al finalizar el curso, tendrás la capacidad de confeccionar modelos en papel que lucen tan bien como las compradas en tiendas.
+                        </p>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">20$</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card mb-4 rounded-3 shadow-sm" id="card3">
+                    <div class="card-header py-3">
+                      <h4 class="my-0 fw-normal">Invitaciones Animadas</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Aprenderas aCrear diseños animados atractivos utilizando solamente Power Point, en Windows, que es una de las herramientas más populares en los negocios hoy en día. La clase es muy fácil de seguir y no te llevará mucho tiempo ser un experto si trabajas en ello con constancia.
+                        </p>
+                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">50$</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <!-- Aca terminan las card de los cursos -->
+        <!-- Formulario-->
+        <div class="container w-50 pt-2">
+            <!-- Texto superior del formulario
+            <div class="text-center">
+                <p class="m-0"><sup>VENTA</sup>
+                <h2>VALOR DE TICKET $200</h2>
+                </p>
+            </div> -->
+            <!-- Formulario -->
+            <form class="row g-1 gx-2 " style="margin-bottom: 100px;">
+                <div class="col-md-6 mb-3">
+                    <label for="name">Tu nombre</label>
+                    <input type="text" name="name" class="form-control" id="name" maxlength="50" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="lastname">Tu Apellido</label>
+                    <input type="text" name="lastname" class="form-control" id="lastname" maxlength="50" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="email">Tu email</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="ejemplo@dominio.com" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="numero_telefono">Tu Telefono</label>
+                    <input type="tel" class="form-control" name="numero_telefono" id="numero_telefono" required pattern="[0-9]{10}" placeholder="1234567890" required>
+                </div>
+                <!-- <div class="col-md-6 mb-3">
+                    <label for="cantidad" class="form-label">Cantidad</label>
+                    <input type="text" class="form-control" id="cantidad" placeholder="Cantidad">
+                </div> -->
+                <div class="col-md-6 mb-3">
+                    <label for="modalidad" class="form-label">Seleccione una modalidad</label>
+                    <select id="modalidad" class="form-select">
+                        <option value="0">Online</option>
+                        <option value="1">Presencial</option>
+                        <option value="2">Mixto</option>
+                        <option value="3">Clases grabadas</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p class="alert alert-primary" id="totalAPagar">Total a Pagar: $</p>
+                </div>
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn text-white fs-6 " style="background-color: #96c93e;"
+                        type=" button" id="consultar" onclick=" enviarCorreo()">Consultar</button>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn text-white fs-6 " style="background-color: #96c93e;"
+                        type=" button" id="comprar"   >Comprar</button>
+                </div>
+            </form>
+
+            
+        </div>
+          
+        
+                    
+        
+        
+        
+        
+        
+    </main>
+    
+    
+    
+    
+</div>
+<!-- inicio footer -->
+<footer class="footer_seccion">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-4 footer-col">
+                <div class="footer_contacto">
+                    <h4>Contactanos</h4>
+                </div>
+                <div class="footer_contacto">
+                    <a href="https://maps.app.goo.gl/MH7LFXFQ6K2UvqWe9" target="_blank">
+                        <i class="fa-sharp fa-solid fa-house"></i> San Fernando, Buenos Aires.
+                    </a>
+                </div>
+                <div class="footer_contacto">
+                    <a href="https://w.app/PuntoTiff" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> +54 1131354605
+                    </a>
+                </div>
+                <div class="footer_contacto">
+                    <a href="mailto:puntotiffvenezuela@gmail.com?Subject=Solicitud%20de%20presupuesto"
+                    target="_blank">
+                    <i class="fa-sharp fa-solid fa-envelope"></i> puntotiffvenezuela@gmail.com
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 footer-col">
+            <div class="footer_social">
+                <h4>Nuestras Redes</h4>
+            </div>
+            <div class="footer_social">
+                <a href="https://instagram.com/puntotiff?igshid=NGVhN2U2NjQ0Yg==" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://instagram.com/puntotiff?igshid=NGVhN2U2NjQ0Yg==" target="_blank">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://instagram.com/puntotiff?igshid=NGVhN2U2NjQ0Yg==" target="_blank">
+                    <i class="fa-brands fa-pinterest"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4 footer-col">
+            <div class="footer_horario">
+                <h4>Horario</h4>
+                <p> De Lunes a Viernes
+                    <br> 9:00 - 18:00
+                </p>
+                <p> Sabados y Feriados
+                    <br>9:00 - 14:00
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer_informacion">
+        <span class="text">
+            © 2023 puntotiff.com – Todos los derechos reservados
+        </span><br>
+        <span class="text">
+            Papeleria creativa, hecha con amor
+        </span><br>
+    </div>
+</div>
+</footer>
+<!-- Fin footer -->
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+crossorigin="anonymous"></script>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+
+</html>
