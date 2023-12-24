@@ -35,10 +35,9 @@
 <body>
 
 	<%
-           PublicacionDAO dao = new PublicacionDAO();
-           List<Publicacion> publicacionesList = new ArrayList<Publicacion>();
-
-       %>
+	PublicacionDAO dao = new PublicacionDAO();
+	List<Publicacion> publicacionesList = new ArrayList<Publicacion>();
+	%>
 	<div class="area-inicial">
 		<!-- Inicio header -->
 		<header class="header_section">
@@ -60,7 +59,7 @@
 							</li>
 							<li class="nav-item"><a class="nav-link"
 								href="nosotras.html">Nosotras</a></li>
-							
+
 							<li class="nav-item"><a class="nav-link" href="cursos.html">Cursos</a>
 							</li>
 							<li class="nav-item"><a class="nav-link"
@@ -92,7 +91,7 @@
 										</div>
 
 										<div class="form-group">
-											<label for="password">ContraseÃ±a</label> <input
+											<label for="password">Contraseñ±a</label> <input
 												type="password" class="form-control" id="password"
 												name="password" required>
 										</div>
@@ -120,11 +119,11 @@
 							type="text" name="buscarText"
 							placeholder="¿Que productos estas buscando?"
 							style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 3px; margin-right: 10px;">
-						<button type="submit"
+						<button type="button" onclick="enviarFormulario(this)"
 							style="padding: 8px 10px; border: none; background-color: #308fc7; color: #fff; border-radius: 3px; cursor: pointer; margin-right: 10px;">Buscar</button>
 					</form>
-						<button onclick="abrirModal()"
-							style="padding: 8px 15px; border: none; background-color: #d04deb; color: #fff; border-radius: 3px; cursor: pointer;">Crear</button>
+					<button onclick="abrirModal()"
+						style="padding: 8px 15px; border: none; background-color: #d04deb; color: #fff; border-radius: 3px; cursor: pointer;">Crear</button>
 				</div>
 			</div>
 			<!-- Fin Buscador -->
@@ -139,11 +138,11 @@
 							<h5 class="modal-title">Subir nuevo producto</h5>
 						</div>
 						<div class="modal-body">
-						
-							<form id="formularioCrear" action="GestionPublicacionServlet" method="post"
-								enctype="multipart/form-data">
+
+							<form id="formularioCrear" action="GestionPublicacionServlet"
+								method="post" enctype="multipart/form-data">
 								<input type="hidden" name="accion" value="crear">
-								
+
 								<div class="form-group">
 									<label for="titulo">Título</label> <input type="text"
 										class="form-control" id="titulo" name="titulo"
@@ -163,8 +162,10 @@
 								</div>
 
 								<div class="text-center mt-3">
-									<button type="submit" class="btn btn-secondary">Cancelar</button>
-									<button type="submit" class="btn btn-secondary">Publicar</button>
+									<button type="button" class="btn btn-secondary"
+										onclick="cerrarModal()">Cancelar</button>
+									<button type="button" class="btn btn-secondary"
+										onclick="enviarFormulario(this)">Publicar</button>
 								</div>
 							</form>
 						</div>
@@ -178,18 +179,19 @@
 			<div class="album py-5 bg-body-tertiary">
 				<div class="container">
 
-					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+					<div id="contenedor-lista"
+						class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
 
 						<%
-                        
 						publicacionesList = dao.obtenerTodos();
 
-                        if (publicacionesList != null && !publicacionesList.isEmpty()) {
-                            // Iterar sobre la lista de oradores y mostrar sus datos en la tabla
-                            for (Publicacion publicacion : publicacionesList) {
-                    %>
+						if (publicacionesList != null && !publicacionesList.isEmpty()) {
+							for (Publicacion publicacion : publicacionesList) {
+						%>
 
-						<div class="col">
+						<div class="col"
+							id="publicacion<%=publicacion.getIdPublicacion()%>">
 							<div class="card shadow-sm">
 								<div style="position: relative;">
 									<img src="img/productoLetra.png"
@@ -201,14 +203,27 @@
 								<div class="card-body">
 									<p class="card-text">
 										<%=publicacion.getDescripcion()%></p>
+									<%-- 										 <button type="button" class="btn btn-danger" onclick="eliminarPublicacion(<%=publicacion.getIdPublicacion()%>)">Eliminar</button> --%>
+
+									<form id="formEliminar<%=publicacion.getIdPublicacion()%>"
+										action="GestionPublicacionServlet" method="post">
+										<!-- Otros campos del formulario -->
+										<input type="hidden" name="accion" value="eliminar"> <input
+											type="hidden" name="idPublicacion"
+											value="<%=publicacion.getIdPublicacion()%>">
+										<button type="button" class="btn btn-danger"
+											onclick="enviarFormulario(this)">Eliminar</button>
+									</form>
+
+
 								</div>
 							</div>
 						</div>
 
 						<%
-                       }
-                        }
-                            %>
+						}
+						}
+						%>
 						<div class="col">
 							<div class="card shadow-sm">
 								<div style="position: relative;">
@@ -424,49 +439,112 @@
 
 
 	<!-- Agregar enlaces a los archivos JS de Bootstrap y jQuery -->
-<!-- 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
-	
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<!-- 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+		crossorigin="anonymous"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-<script>
-    function abrirModal() {
-        $('#publicacionModal').modal('show');
-    }
-    
-    function enviarFormulario() {
-    	
-    	var formulario = $('#formularioCrear');
-        var formData = new FormData(formulario);
-    	
-        $.ajax({
-            url: $('#formularioCrear').attr('crear'),
-            type: 'POST',
-            data: formData,
-            processData: false,  // Evitar el procesamiento automático de datos
-            contentType: false, 
-            success: function(response) {
-                // Maneja la respuesta del servlet aquí
-                alert('La respuesta del servlet: ' + response);
-            },
-            error: function() {
-                alert('Error al enviar la solicitud.');
-            }
-        });
-    }
-</script>
+	<script>
+		function abrirModal() {
+			$('#publicacionModal').modal('show');
+		}
+
+		function enviarFormulario(formulario) {
+
+			var formData = null;
+			
+			if(formulario == null){
+				formData = new FormData();
+				formData.append('accion', 'buscarTodos');
+			}else {
+				formData = new FormData(formulario.closest("form"));
+			}
+			
+			var accion = '';
+			
+			for (var [key, value] of formData.entries()) {
+				 if (key === 'accion') accion = value;
+		    }
+
+			$.ajax({
+				url : 'GestionPublicacionServlet',
+				type : 'POST',
+				processData : false, // Evitar el procesamiento automático de datos
+				contentType : false,
+				data: formData,
+				success : function(response) {
+					
+					console.log(response);
+					
+					var jsonResponse =JSON.parse(response).publicacionesList;
+					
+					$('#contenedor-lista').empty();
+					
+					jsonResponse.forEach(publicacion => {
+						
+						 var base64 = btoa(String.fromCharCode.apply(null, new Uint8Array(publicacion.imagen)));
+		                 var dataUri = 'data:image/jpeg;base64,' + base64;
+					  
+		            $('#contenedor-lista').append(
+					
+					
+					`
+	                <div class="col" id="publicacion_`+ publicacion.idPublicacion + `">
+	                    <div class="card shadow-sm">
+	                        <div style="position: relative;">
+	                            <img src="`+ dataUri + `" alt="Descripción de la imagen" class="card-img-top img-fluid">
+	                            <div class="card-overlay">` +
+	                            	publicacion.titulo +
+	                            `</div>
+	                        </div>
+	                        <div class="card-body">
+	                            <p class="card-text"> `+
+	                            	publicacion.descripcion +
+	                            `</p>
+	                            <form id="formEliminar${publicacion.id}" action="GestionPublicacionServlet" method="post">
+	                                <input type="hidden" name="accion" value="eliminar">
+	                                <input type="hidden" name="idPublicacion" value="`+ publicacion.idPublicacion + `">
+	                                <button type="button" class="btn btn-danger eliminarBtn" onclick="enviarFormulario(this)">Eliminar</button>
+	                            </form>
+	                        </div>
+	                    </div>
+	                </div>`
+					)
+					});
+					
+				},
+				error : function() {
+					alert('Error al enviar la solicitud.');
+				}
+			});
+			if(accion === 'crear'){
+				cerrarModal();
+			}
+		}
+
+		function cerrarModal() {
+			$('#titulo').val("");
+			$('#descripcion').val("");
+			$('#imagen').val("");
+			$('#publicacionModal').modal('toggle');
+		}
+		
+		$(function() {
+			enviarFormulario(null);
+		    console.log( "ready!" );
+		});
+
+	</script>
 
 
 
 
-<!-- 	<script -->
-<!-- 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" -->
-<!-- 		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" -->
-<!-- 		crossorigin="anonymous"></script> -->
 </body>
 
 </html>

@@ -40,7 +40,7 @@ public class PublicacionDAO {
 
     public Publicacion obtenerPorId(int id) {
         
-    	String sql = "SELECT * FROM publicaciones WHERE id_publicacion = ?";
+    	String sql = "SELECT * FROM publicaciones WHERE id_publicaciones = ?";
         
     	try (Connection conn = ConexionDB.conectar();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -118,7 +118,7 @@ public class PublicacionDAO {
     }
 
     public void actualizarPublicacion(Publicacion publicacion) {
-        String sql = "UPDATE publicaciones SET titulo = ?, descripcion = ?, imagen = ? WHERE id_publicacion = ?";
+        String sql = "UPDATE publicaciones SET titulo = ?, descripcion = ?, imagen = ? WHERE id_publicaciones = ?";
         try (Connection conn = ConexionDB.conectar();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -134,7 +134,7 @@ public class PublicacionDAO {
     }
 
     public void eliminarPublicacion(int id) {
-        String sql = "DELETE FROM publicaciones WHERE id_publicacion = ?";
+        String sql = "DELETE FROM publicaciones WHERE id_publicaciones = ?";
         try (Connection conn = ConexionDB.conectar();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
